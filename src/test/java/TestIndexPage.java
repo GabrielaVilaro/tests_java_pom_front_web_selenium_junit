@@ -1,4 +1,5 @@
 import Pages.IndexPage;
+import Pages.ItemPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +12,7 @@ public class TestIndexPage {
 
     private WebDriver driver;
     IndexPage indexPage;
+    ItemPage itemPage;
 
     @Before
     public void setUp() {
@@ -19,6 +21,7 @@ public class TestIndexPage {
         this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         this.driver.get("http://automationpractice.com/index.php");
         indexPage = new IndexPage(this.driver);
+        itemPage =  new ItemPage(this.driver);
 
     }
 
@@ -33,7 +36,7 @@ public class TestIndexPage {
     {
         indexPage.searchElement("Manzana");
         indexPage.clickElement();
-
+        assertEquals(itemPage.getTextOfResult(), "No results were found for your search \"Manzana\"");
     }
 
     @After
