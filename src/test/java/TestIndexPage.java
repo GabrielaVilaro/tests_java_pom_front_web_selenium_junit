@@ -15,7 +15,6 @@ public class TestIndexPage implements Config {
     private ItemPage itemPage;
     private WebDriver driver;
 
-
     @Before
     public void setUp() {
         System.setProperty(Config.browser, Config.path);

@@ -2,6 +2,9 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class IndexPage extends BasePage{
 
@@ -11,13 +14,15 @@ public class IndexPage extends BasePage{
 
     public void searchElement(String text)
     {
-        driver.findElement(By.id("search_query_top")).sendKeys(text);
-        new IndexPage(driver);
+        WebElement textOfResultInvalid = new WebDriverWait(driver, 10).
+                until(ExpectedConditions.visibilityOfElementLocated(By.id("search_query_top")));
+        textOfResultInvalid.sendKeys(text);
     }
 
     public void clickElement()
     {
-        driver.findElement(By.name("submit_search")).click();
-        new IndexPage(driver);
+        WebElement buttonSearch = new WebDriverWait(driver, 10).
+                until(ExpectedConditions.visibilityOfElementLocated(By.name("submit_search")));
+        buttonSearch.click();
     }
 }
