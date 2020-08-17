@@ -1,33 +1,11 @@
 package Pages;
 import org.openqa.selenium.WebDriver;
 
-public class BasePage{
+public class BasePage implements Config {
 
-    private WebDriver driver;
-    private String baseUrl;
+    protected WebDriver driver;
 
-    public BasePage(WebDriver driver, String baseUrl) {
+    public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.baseUrl = baseUrl;
-    }
-
-    public BasePage() {
-
-    }
-
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    public void setDriver(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    public String getBaseUrl() {
-        return baseUrl;
-    }
-
-    public void setBaseUrl(String baseUrl) {
-        this.baseUrl = baseUrl;
     }
 }
