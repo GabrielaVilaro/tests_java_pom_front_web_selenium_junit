@@ -5,21 +5,19 @@ import org.openqa.selenium.WebDriver;
 
 public class IndexPage extends BasePage{
 
-    private WebDriver driver;
-
     public IndexPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    public IndexPage searchElement(String text)
+    public void searchElement(String text)
     {
         driver.findElement(By.id("search_query_top")).sendKeys(text);
-        return new IndexPage(driver);
+        new IndexPage(driver);
     }
 
-    public IndexPage clickElement()
+    public void clickElement()
     {
         driver.findElement(By.name("submit_search")).click();
-        return new IndexPage(driver);
+        new IndexPage(driver);
     }
 }

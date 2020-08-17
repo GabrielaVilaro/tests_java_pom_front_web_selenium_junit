@@ -3,12 +3,10 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ItemPage {
-
-    private WebDriver driver;
+public class ItemPage extends BasePage{
 
     public ItemPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public String getTextOfResult()
