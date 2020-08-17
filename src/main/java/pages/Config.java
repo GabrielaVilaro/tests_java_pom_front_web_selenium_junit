@@ -1,6 +1,4 @@
-package Pages;
-
-import org.openqa.selenium.WebDriver;
+package pages;
 
 public interface Config {
     String browser = "webdriver.chrome.driver";
