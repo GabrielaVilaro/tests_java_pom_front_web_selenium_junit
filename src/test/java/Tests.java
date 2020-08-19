@@ -25,7 +25,7 @@ public class Tests extends Functions implements Config, UserStatic {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get(Config.baseUr);
+        driver.get(Config.baseUrl);
         indexPage = new IndexPage(driver);
         itemPage =  new ItemPage(driver);
         signInPage = new SignInPage(driver);
