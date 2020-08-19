@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public abstract class BasePage implements Config {
+public class BasePage implements Config {
 
     private static WebDriver driver;
 
@@ -14,28 +14,28 @@ public abstract class BasePage implements Config {
         BasePage.driver = driver;
     }
 
-    public static void clickButton(By locator)
+    public void clickButton(By locator)
     {
         WebElement button = new WebDriverWait(driver, 10).
                 until(ExpectedConditions.visibilityOfElementLocated(locator));
         button.click();
     }
 
-    public static void sendKeys(By locator, String text)
+    public void sendKeys(By locator, String text)
     {
         WebElement textOfResult = new WebDriverWait(driver, 10).
                 until(ExpectedConditions.visibilityOfElementLocated(locator));
         textOfResult.sendKeys(text);
     }
 
-    public static String getText(By locator)
+    public String getText(By locator)
     {
         WebElement text = new WebDriverWait(driver, 10).
                 until(ExpectedConditions.visibilityOfElementLocated(locator));
         return text.getText();
     }
 
-    public static void selectByVisibleText(By locator, String text){
+    public void selectByVisibleText(By locator, String text){
 
         Select dropList = new Select(new WebDriverWait(driver, 10).
                 until(ExpectedConditions.presenceOfElementLocated(locator)));
