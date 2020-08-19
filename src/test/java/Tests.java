@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import utils.UserStatic;
-
 import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 
@@ -23,17 +22,16 @@ public class Tests extends Functions implements Config, UserStatic {
     @Before
     public void setUp() {
         System.setProperty(Config.browser, Config.path);
-        this.driver = new ChromeDriver();
-        this.driver.manage().window().maximize();
-        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        this.driver.get(Config.baseUr);
-        this.indexPage = new IndexPage(this.driver);
-        this.itemPage =  new ItemPage(this.driver);
-        this.signInPage = new SignInPage(this.driver);
-        this.functions = new Functions();
-        this.myAccountPage = new MyAccountPage(this.driver);
-        this.createAnAccountPage = new CreateAnAccountPage(this.driver);
-
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get(Config.baseUr);
+        indexPage = new IndexPage(driver);
+        itemPage =  new ItemPage(driver);
+        signInPage = new SignInPage(driver);
+        functions = new Functions();
+        myAccountPage = new MyAccountPage(driver);
+        createAnAccountPage = new CreateAnAccountPage(driver);
     }
 
     @Test
@@ -45,8 +43,8 @@ public class Tests extends Functions implements Config, UserStatic {
     @Test
     public void elementInvalid()
     {
-        this.indexPage.searchElement("Manzana");
-        this.indexPage.clickButtonSearch();
+        indexPage.searchElement("Manzana");
+        indexPage.clickButtonSearch();
         String textResult = itemPage.getTextOfResult();
         assertEquals(textResult, "No results were found for your search \"Manzana\"");
     }
@@ -54,22 +52,22 @@ public class Tests extends Functions implements Config, UserStatic {
     @Test
     public void createAnAccountValidPage()
     {
-        this.indexPage.clickButtonSignIn();
-        this.signInPage.sendKeysBoxOfEmail(this.functions.generateEmail());
-        this.signInPage.clickButtonCreateAnAccount();
-        String titleOfPageAuthentication = this.createAnAccountPage.getTextTitleOfAuthentication();
+        indexPage.clickButtonSignIn();
+        signInPage.sendKeysBoxOfEmail(functions.generateEmail());
+        signInPage.clickButtonCreateAnAccount();
+        String titleOfPageAuthentication = createAnAccountPage.getTextTitleOfAuthentication();
         assertEquals(titleOfPageAuthentication, "AUTHENTICATION");
     }
 
     @Test
     public void loginOfValidAccountValidTextOfPage()
     {
-        this.indexPage.clickButtonSignIn();
-        this.signInPage.sendKeysBoxOfEmailRegistered(UserStatic.emailUserRegistered);
-        this.signInPage.sendKeysBoxOfPassword(UserStatic.passwordUserRegistered);
-        this.signInPage.clickButtonSignInRegistered();
-        String textNameOfUser = this.myAccountPage.getTextOfNameUserRegistration();
-        String textOfBanner = this.myAccountPage.getTextOfTitleBannerRegistration();
+        indexPage.clickButtonSignIn();
+        signInPage.sendKeysBoxOfEmailRegistered(UserStatic.emailUserRegistered);
+        signInPage.sendKeysBoxOfPassword(UserStatic.passwordUserRegistered);
+        signInPage.clickButtonSignInRegistered();
+        String textNameOfUser = myAccountPage.getTextOfNameUserRegistration();
+        String textOfBanner = myAccountPage.getTextOfTitleBannerRegistration();
         assertEquals(textNameOfUser, "Lorena Perez");
         assertEquals(textOfBanner, "MY ACCOUNT");
     }
