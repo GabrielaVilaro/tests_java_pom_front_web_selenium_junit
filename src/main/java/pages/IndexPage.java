@@ -1,10 +1,6 @@
 package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class IndexPage extends BasePage{
 
@@ -15,23 +11,19 @@ public class IndexPage extends BasePage{
     public IndexPage(WebDriver driver) {
         super(driver);
     }
+
     public void searchElement(String text)
     {
-        WebElement textOfResult = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(textOfResultInvalid));
-        textOfResult.sendKeys(text);
+        sendKeys(textOfResultInvalid, text);
     }
     public void clickButtonSearch()
     {
-        WebElement button = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(buttonSearch));
-        button.click();
+        clickButton(buttonSearch);
     }
 
     public void clickButtonSignIn()
     {
-        WebElement button = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(buttonSignIn));
-        button.click();
+        clickButton(buttonSignIn);
     }
+
 }

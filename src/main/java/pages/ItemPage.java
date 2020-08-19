@@ -1,10 +1,6 @@
 package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ItemPage extends BasePage{
 
@@ -16,10 +12,7 @@ public class ItemPage extends BasePage{
 
     public String getTextOfResult()
     {
-        WebElement text = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(textOfResult));
-        return text.getText();
-
+      return getText(textOfResult);
     }
 
 }

@@ -1,10 +1,6 @@
 package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MyAccountPage extends BasePage{
 
@@ -17,14 +13,12 @@ public class MyAccountPage extends BasePage{
 
     public String getTextOfNameUserRegistration()
     {
-        WebElement text = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(nameOfUserRegistration));
-        return text.getText();
+        return getText(nameOfUserRegistration);
+
     }
     public String getTextOfTitleBannerRegistration()
     {
-        WebElement text = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(titleOfBannerRegistration));
-        return text.getText();
+        return getText(titleOfBannerRegistration);
+
     }
 }

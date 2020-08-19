@@ -1,11 +1,6 @@
 package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 public class SignInPage extends BasePage{
 
     By boxOfEmailNotRegistered = By.id("email_create");
@@ -18,40 +13,27 @@ public class SignInPage extends BasePage{
     public SignInPage(WebDriver driver) {
         super(driver);
     }
-
     public void sendKeysBoxOfEmail(String text)
     {
-        WebElement textOfResult = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(boxOfEmailNotRegistered));
-        textOfResult.sendKeys(text);
+        sendKeys(boxOfEmailNotRegistered, text);
     }
-
     public void clickButtonCreateAnAccount()
     {
-        WebElement button = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(buttonCreateAnAccount));
-        button.click();
+       clickButton(buttonCreateAnAccount);
     }
 
     public void sendKeysBoxOfEmailRegistered(String text)
     {
-        WebElement textOfResult = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(boxEmailRegistered));
-        textOfResult.sendKeys(text);
+        sendKeys(boxEmailRegistered, text);
     }
 
     public void sendKeysBoxOfPassword(String text)
     {
-        WebElement textOfResult = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(boxPasswordRegistered));
-        textOfResult.sendKeys(text);
+        sendKeys(boxPasswordRegistered, text);
     }
 
     public void clickButtonSignInRegistered()
     {
-        WebElement button = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(buttonSignInRegistered));
-        button.click();
+        clickButton(buttonSignInRegistered);
     }
-
 }
