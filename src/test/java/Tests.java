@@ -41,12 +41,22 @@ public class Tests extends Functions implements Config, UserStatic {
     }
 
     @Test
-    public void elementInvalid()
+    public void elementInvalidNoResults()
     {
         indexPage.searchElement("Manzana");
         indexPage.clickButtonSearch();
         String textResult = itemPage.getTextOfResult();
         assertEquals(textResult, "No results were found for your search \"Manzana\"");
+    }
+
+    @Test
+    public void elementValidResultsOfSearch()
+    {
+        indexPage.searchElement("T-SHIRT");
+        indexPage.clickButtonSearch();
+        itemPage.selectByTextList("Product Name: Z to A");
+        String showingResults = itemPage.getTextOfListOrder();
+        assertEquals(showingResults, "Showing 1 - 1 of 1 item");
     }
 
     @Test
