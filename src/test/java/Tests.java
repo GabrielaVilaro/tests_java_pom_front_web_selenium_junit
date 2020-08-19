@@ -21,11 +21,11 @@ public class Tests extends Functions implements Config, UserStatic {
 
     @Before
     public void setUp() {
-        System.setProperty(Config.browser, Config.path);
+        System.setProperty(Config.BROWSER, Config.PATH);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get(Config.baseUrl);
+        driver.get(Config.BASE_URL);
         indexPage = new IndexPage(driver);
         itemPage =  new ItemPage(driver);
         signInPage = new SignInPage(driver);
@@ -73,8 +73,8 @@ public class Tests extends Functions implements Config, UserStatic {
     public void loginOfValidAccountVerifyTextOfPage()
     {
         indexPage.clickButtonSignIn();
-        signInPage.sendKeysBoxOfEmailRegistered(UserStatic.emailUserRegistered);
-        signInPage.sendKeysBoxOfPassword(UserStatic.passwordUserRegistered);
+        signInPage.sendKeysBoxOfEmailRegistered(UserStatic.EMAIL_USER_REGISTERED);
+        signInPage.sendKeysBoxOfPassword(UserStatic.PASSWORD_USER_REGISTERED);
         signInPage.clickButtonSignInRegistered();
         String textNameOfUser = myAccountPage.getTextOfNameUserRegistration();
         String textOfBanner = myAccountPage.getTextOfTitleBannerRegistration();
