@@ -26,5 +26,4 @@ public class ItemPage extends BasePage{
     {
         return getText(showingOneToOneResults);
     }
-
 }

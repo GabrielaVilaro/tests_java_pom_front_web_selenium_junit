@@ -70,7 +70,7 @@ public class Tests extends Functions implements Config, UserStatic {
     }
 
     @Test
-    public void loginOfValidAccountValidTextOfPage()
+    public void loginOfValidAccountVerifyTextOfPage()
     {
         indexPage.clickButtonSignIn();
         signInPage.sendKeysBoxOfEmailRegistered(UserStatic.emailUserRegistered);

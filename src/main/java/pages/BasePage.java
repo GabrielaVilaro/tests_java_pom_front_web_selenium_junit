@@ -33,7 +33,6 @@ public abstract class BasePage implements Config {
         WebElement text = new WebDriverWait(driver, 10).
                 until(ExpectedConditions.visibilityOfElementLocated(locator));
         return text.getText();
-
     }
 
     public static void selectByVisibleText(By locator, String text){

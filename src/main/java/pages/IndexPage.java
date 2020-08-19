@@ -25,5 +25,4 @@ public class IndexPage extends BasePage{
     {
         clickButton(buttonSignIn);
     }
-
 }

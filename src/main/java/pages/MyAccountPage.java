@@ -14,11 +14,9 @@ public class MyAccountPage extends BasePage{
     public String getTextOfNameUserRegistration()
     {
         return getText(nameOfUserRegistration);
-
     }
     public String getTextOfTitleBannerRegistration()
     {
         return getText(titleOfBannerRegistration);
-
     }
 }
